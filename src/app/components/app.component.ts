@@ -9,6 +9,6 @@ import {GeneralComponent} from "./general.component";
 export class AppComponent extends GeneralComponent {
   constructor(obj?: AppComponent) {
     super(obj);
-    this.name = "App Works!";
+    this.Name = "App Works!";
   }
 }

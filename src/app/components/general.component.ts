@@ -1,25 +1,38 @@
 'use strict';
+import {Util} from "../util/numbers.class";
+import {Types} from "../types/id.type";
+import Numbers = Util.Numbers;
+import Id = Types.Id;
 /**
  * Created by becari on 19/10/2016.
  */
 
 export class GeneralComponent {
+  private _id: Id;
   private _name: String;
-  private static _count: number = 0;
-  constructor(obj?: GeneralComponent) {
-    GeneralComponent.Count++;
-    this.Name = obj && obj.Name || ("unnamed_" + GeneralComponent.Count)
+
+  public constructor(obj?: GeneralComponent) {
+    this.Name = obj && obj.Name || "unnamed";
+    this.Id = obj && obj.Id || new Id();
   }
-  get Name(): String {
+
+  private AutoName(): string {
+    return this.Name + "_" + this.Id.ToString();
+  }
+
+  public get Name(): String {
     return this._name;
   }
-  set Name(_name: String) {
-    this._name = _name;
+  public set Name(_name: String) {
+    if(_name.length > 0) this._name = _name;
   }
-  protected static get Count(): number {
-    return GeneralComponent._count;
+  public get Id(): Id {
+    return this._id;
   }
-  protected static set Count(_count: number) {
-    GeneralComponent._count = _count;
+  public set Id(_id: Id) {
+    this._id = _id;
+  }
+  public ToString(): string {
+    return this.AutoName();
   }
 }

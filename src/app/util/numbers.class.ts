@@ -34,10 +34,8 @@ export module Util {
      * @param _max Límite superior
      * @returns {number}
      */
-    static RandomNumber(_min?: number, _max?: number): number {
-      var _min: number = _min || 0,
-        _max: number = _max || 99999;
-      if (_min > _max) throw new Error();
+    static RandomNumber(_min: number = 0, _max: number = 99999): number {
+      if (_min >= _max) throw new Error();
       return Math.floor(Math.random() * (_max - _min + 1) + _min);
     }
     /**

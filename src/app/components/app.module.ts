@@ -5,16 +5,18 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import {GeneralComponent} from "./general.component";
+import {Types} from "../types/id.type";
 
 @NgModule({
   declarations: [
     AppComponent,
-    GeneralComponent
+    GeneralComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    Types
   ],
   providers: [],
   bootstrap: [AppComponent]
